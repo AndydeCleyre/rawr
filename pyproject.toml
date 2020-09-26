@@ -1,0 +1,21 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "rawr"
+dist-name = "rawr-cli"
+description-file = "README.rst"
+author = "Andy Kluger"
+home-page = "https://github.com/andydecleyre/rawr"
+classifiers = []
+license = "WTFPL"
+requires-python = ">=3.6"
+keywords = "rarbg,rarbgapi,torrent,cli"
+requires = ["plumbum", "rarbgapi>=0.4.1"]
+
+[tool.flit.metadata.requires-extra]
+dev = ["flit"]
+
+[tool.flit.scripts]
+rawr = "rawr:Rawr"
