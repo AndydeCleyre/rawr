@@ -73,6 +73,6 @@ zpy__ can also help you install tools from PyPI into isolated venvs, with ``pipz
 
 __ https://github.com/andydecleyre/zpy
 
-.. code:: zsh
+.. code:: console
 
   % pipz install rawr-cli
