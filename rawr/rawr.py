@@ -87,7 +87,10 @@ class Rawr(Application):
             print(
                 f"{local['df']('-h', '-P', '.').splitlines()[-1].split()[3]} available"
             | yellow)
-        uri = choose_result(results)
+        try:
+            uri = choose_result(results)
+        except KeyboardInterrupt:
+            uri = None
         if not uri:
             return
         try:
