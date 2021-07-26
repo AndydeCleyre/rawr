@@ -1,6 +1,14 @@
 rawr
 ====
 
+.. list-table::
+   :widths: auto
+   :align: center
+
+   * - |actions-pypi|
+     - |actions-reqs|
+     - |actions-fmt|
+
 This is a simple CLI for using rarbgapi__ to find a torrent,
 then start fetching it with aria2__.
 
@@ -76,3 +84,16 @@ __ https://github.com/andydecleyre/zpy
 .. code:: console
 
   % pipz install --cmd rawr rawr-cli
+
+
+.. |actions-fmt| image:: https://github.com/AndydeCleyre/rawr/actions/workflows/fmt.yml/badge.svg?branch=develop
+   :alt: Automated Code Format Status
+   :target: https://github.com/AndydeCleyre/rawr/actions/workflows/fmt.yml
+
+.. |actions-pypi| image:: https://github.com/AndydeCleyre/rawr/actions/workflows/pypi-release.yml/badge.svg?branch=develop
+   :alt: Automated PyPI Release Status
+   :target: https://github.com/AndydeCleyre/rawr/actions/workflows/pypi-release.yml
+
+.. |actions-reqs| image:: https://github.com/AndydeCleyre/rawr/actions/workflows/reqs.yml/badge.svg?branch=develop
+   :alt: Automated Python Requirements Bump Status
+   :target: https://github.com/AndydeCleyre/rawr/actions/workflows/reqs.yml
