@@ -15,7 +15,7 @@ Usage
 
   $ rawr gold rush 1925
 
-.. image:: https://user-images.githubusercontent.com/1787385/94319181-17d10280-ff58-11ea-99a1-f56e2ff5ddd1.png
+.. image:: https://user-images.githubusercontent.com/1787385/94336947-c30fa500-ffb4-11ea-8687-126a16779bfe.png
    :alt: Screenshot: rawr gold rush 1925
 
 All categories will be searched, excepting ADULT.
@@ -73,6 +73,6 @@ zpy__ can also help you install tools from PyPI into isolated venvs, with ``pipz
 
 __ https://github.com/andydecleyre/zpy
 
-.. code:: zsh
+.. code:: console
 
   % pipz install rawr-cli
