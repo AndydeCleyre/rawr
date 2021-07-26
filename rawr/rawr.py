@@ -6,7 +6,7 @@ from time import sleep
 from plumbum import FG, CommandNotFound, local
 from plumbum.cli import Application, Flag
 from plumbum.cli.terminal import ask, choose
-from plumbum.colors import blue, green, magenta, yellow, bold
+from plumbum.colors import blue, bold, green, magenta, yellow
 from rarbgapi import RarbgAPI
 
 
@@ -21,13 +21,15 @@ def search(search_terms, adult=False):
         if attempts < max_attempts:
             sleep(1)
         results = {
-            ' '.join((
-                r.filename,
-                str(r.seeders) | green,
-                str(r.leechers) | yellow,
-                f"{r.size / 1024**3:.2f} GiB" | blue,
-                r.pubdate.split()[0] | magenta
-            )): r.download
+            ' '.join(
+                (
+                    r.filename,
+                    str(r.seeders) | green,
+                    str(r.leechers) | yellow,
+                    f"{r.size / 1024**3:.2f} GiB" | blue,
+                    r.pubdate.split()[0] | magenta,
+                )
+            ): r.download
             for r in RarbgAPI().search(**search_args)
         }
         attempts -= 1
@@ -47,14 +49,14 @@ def show_connection():
                 f"{line.split(':')[0] | yellow}: {line.split(':', 1)[-1]}"
                 for line in local['mullvad']('status', '-l').splitlines()
             ),
-            sep='\n'
+            sep='\n',
         )
     except CommandNotFound:
         try:
-            print((
-                local['nmcli']['-o']
-                | local['grep']['-E', '^[^ ]+: connected']
-            )() | yellow)
+            print(
+                (local['nmcli']['-o'] | local['grep']['-E', '^[^ ]+: connected'])()
+                | yellow
+            )
         except CommandNotFound:
             try:
                 print(local['https']('--body', 'ipinfo.io') | yellow)
@@ -72,7 +74,8 @@ def clip(text):
         (((local['pbcopy'] > sys.stdout) >= sys.stderr) << text)()
 
 
-class NoResults(Exception): pass
+class NoResults(Exception):
+    pass
 
 
 class Rawr(Application):
@@ -91,7 +94,8 @@ class Rawr(Application):
         with suppress(CommandNotFound):
             print(
                 f"{local['df']('-h', '-P', '.').splitlines()[-1].split()[3]} available"
-            | yellow)
+                | yellow
+            )
         try:
             uri = choose_result(results)
         except KeyboardInterrupt:
@@ -111,16 +115,20 @@ class Rawr(Application):
         except CommandNotFound:
             print(
                 "If I'd found the 'aria2c' command, I'd have offered to launch it for you."
-            | yellow)
+                | yellow
+            )
         else:
             if ask("Begin download with aria2" | magenta, True):
                 # try:
-                aria2c[
-                    '--seed-time=10',
-                    '--seed-ratio=1.0',
-                    '--console-log-level=error',
-                    uri
-                ] &FG
+                (
+                    aria2c[
+                        '--seed-time=10',
+                        '--seed-ratio=1.0',
+                        '--console-log-level=error',
+                        uri,
+                    ]
+                    & FG
+                )
                 # except KeyboardInterrupt:
                 # TODO: really kill that aria2c proc
                 # TODO: or can I exec into the process and leave python behind?
