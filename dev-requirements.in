@@ -1,1 +1,2 @@
 flit
+-r requirements.txt
