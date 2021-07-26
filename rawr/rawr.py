@@ -6,7 +6,7 @@ from time import sleep
 from plumbum import FG, CommandNotFound, local
 from plumbum.cli import Application, Flag
 from plumbum.cli.terminal import ask, choose
-from plumbum.colors import blue, green, magenta, yellow
+from plumbum.colors import blue, green, magenta, yellow, bold
 from rarbgapi import RarbgAPI
 
 
@@ -19,7 +19,6 @@ def search(search_terms, adult=False):
     attempts = max_attempts
     while attempts and not results:
         if attempts < max_attempts:
-            print(f"Retrying . . .")
             sleep(1)
         results = {
             ' '.join((
@@ -43,7 +42,13 @@ def choose_result(results):
 
 def show_connection():
     try:
-        print(local['mullvad']('status', '-l') | yellow)
+        print(
+            *(
+                f"{line.split(':')[0] | yellow}: {line.split(':', 1)[-1]}"
+                for line in local['mullvad']('status', '-l').splitlines()
+            ),
+            sep='\n'
+        )
     except CommandNotFound:
         try:
             print((
@@ -79,7 +84,7 @@ class Rawr(Application):
         try:
             results = search(search_terms, adult=self.adult)
         except KeyboardInterrupt:
-            results = None
+            return
         if not results:
             raise NoResults
 
@@ -110,9 +115,15 @@ class Rawr(Application):
         else:
             if ask("Begin download with aria2" | magenta, True):
                 # try:
-                aria2c['--seed-time=0', uri] &FG
+                aria2c[
+                    '--seed-time=10',
+                    '--seed-ratio=1.0',
+                    '--console-log-level=error',
+                    uri
+                ] &FG
                 # except KeyboardInterrupt:
                 # TODO: really kill that aria2c proc
+                # TODO: or can I exec into the process and leave python behind?
 
 
 Rawr.unbind_switches('help-all')
