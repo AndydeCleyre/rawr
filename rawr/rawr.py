@@ -77,7 +77,7 @@ class NoResults(Exception): pass
 
 class Rawr(Application):
 
-    VERSION = '0.0.1'
+    VERSION = '0.0.2'
     adult = Flag(['a', 'adult'], help="Search (only) in the 'adult' category")
 
     def main(self, *search_terms):
