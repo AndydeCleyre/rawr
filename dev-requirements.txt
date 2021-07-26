@@ -1,7 +1,11 @@
 certifi==2021.5.30
-    # via requests
+    # via
+    #   -r requirements.txt
+    #   requests
 charset-normalizer==2.0.3
-    # via requests
+    # via
+    #   -r requirements.txt
+    #   requests
 docutils==0.17.1
     # via flit
 flit==3.2.0
@@ -9,12 +13,21 @@ flit==3.2.0
 flit-core==3.2.0
     # via flit
 idna==3.2
-    # via requests
-requests==2.26.0
-    # via flit
-toml==0.10.2
     # via
+    #   -r requirements.txt
+    #   requests
+plumbum==1.7.0
+    # via -r requirements.txt
+rarbgapi==0.4.2
+    # via -r requirements.txt
+requests==2.26.0
+    # via
+    #   -r requirements.txt
     #   flit
-    #   flit-core
+    #   rarbgapi
+toml==0.10.2
+    # via flit
 urllib3==1.26.6
-    # via requests
+    # via
+    #   -r requirements.txt
+    #   requests

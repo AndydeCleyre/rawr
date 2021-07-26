@@ -12,7 +12,7 @@ jobs:
           python-version: '3.x'
       - run: |
           python -m pip install --upgrade pip pip-tools
-          for reqsin in *requirements.in; do
+          for reqsin in requirements.in dev-requirements.in; do
             pip-compile -U --no-header "$reqsin"
           done
 
