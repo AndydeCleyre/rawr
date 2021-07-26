@@ -75,4 +75,4 @@ __ https://github.com/andydecleyre/zpy
 
 .. code:: console
 
-  % pipz install rawr-cli
+  % pipz install --cmd rawr rawr-cli
