@@ -90,7 +90,7 @@ __ https://github.com/andydecleyre/zpy
    :alt: Automated Code Format Status
    :target: https://github.com/AndydeCleyre/rawr/actions/workflows/fmt.yml
 
-.. |actions-pypi| image:: https://github.com/AndydeCleyre/rawr/actions/workflows/pypi-release.yml/badge.svg?branch=develop
+.. |actions-pypi| image:: https://github.com/AndydeCleyre/rawr/actions/workflows/pypi-release.yml/badge.svg?branch=master
    :alt: Automated PyPI Release Status
    :target: https://github.com/AndydeCleyre/rawr/actions/workflows/pypi-release.yml
 
