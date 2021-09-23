@@ -27,7 +27,7 @@ requests==2.26.0
     #   rarbgapi
 toml==0.10.2
     # via flit
-urllib3==1.26.6
+urllib3==1.26.7
     # via
     #   -r requirements.txt
     #   requests
