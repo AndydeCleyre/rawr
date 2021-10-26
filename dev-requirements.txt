@@ -25,7 +25,7 @@ requests==2.26.0
     #   -r requirements.txt
     #   flit
     #   rarbgapi
-tomli==1.2.1
+tomli==1.2.2
     # via flit
 tomli-w==0.4.0
     # via flit
