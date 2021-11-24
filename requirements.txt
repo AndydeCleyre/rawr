@@ -4,7 +4,7 @@ charset-normalizer==2.0.7
     # via requests
 idna==3.3
     # via requests
-plumbum==1.7.0
+plumbum==1.7.1
     # via -r requirements.in
 rarbgapi==0.4.2
     # via -r requirements.in
