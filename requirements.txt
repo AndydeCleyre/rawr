@@ -8,7 +8,7 @@ plumbum==1.7.2
     # via -r requirements.in
 rarbgapi==0.4.2
     # via -r requirements.in
-requests==2.26.0
+requests==2.27.0
     # via rarbgapi
 urllib3==1.26.7
     # via requests
