@@ -1,4 +1,4 @@
-certifi==2022.5.18
+certifi==2022.5.18.1
     # via requests
 charset-normalizer==2.0.12
     # via requests
