@@ -1,4 +1,4 @@
-certifi==2022.5.18.1
+certifi==2022.6.15
     # via
     #   -r requirements.txt
     #   requests
