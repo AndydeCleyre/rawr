@@ -1,4 +1,4 @@
-certifi==2022.6.15.1
+certifi==2022.6.15.2
     # via
     #   -r requirements.txt
     #   requests
@@ -12,7 +12,7 @@ flit==3.7.1
     # via -r dev-requirements.in
 flit-core==3.7.1
     # via flit
-idna==3.3
+idna==3.4
     # via
     #   -r requirements.txt
     #   requests
