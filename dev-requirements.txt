@@ -20,14 +20,14 @@ plumbum==1.8.1
     # via -r requirements.txt
 rarbgapi==0.5.0
     # via -r requirements.txt
-requests==2.29.0
+requests==2.30.0
     # via
     #   -r requirements.txt
     #   flit
     #   rarbgapi
 tomli-w==1.0.0
     # via flit
-urllib3==1.26.15
+urllib3==2.0.2
     # via
     #   -r requirements.txt
     #   requests
