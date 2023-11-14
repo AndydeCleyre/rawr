@@ -10,5 +10,5 @@ rarbgapi==0.5.0
     # via -r requirements.in
 requests==2.31.0
     # via rarbgapi
-urllib3==2.0.7
+urllib3==2.1.0
     # via requests
